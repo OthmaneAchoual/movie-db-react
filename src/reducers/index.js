@@ -1,0 +1,1 @@
+export { movies } from './movies';
