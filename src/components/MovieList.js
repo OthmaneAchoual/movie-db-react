@@ -1,18 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import { Button, Table } from 'shineout';
+
 import { getMovies } from '../actions';
 
-const MovieList = ({ movies }) => {
+
+const columns = [
+    { title: 'ID', render: 'id' },
+    { title: 'Title', render: 'title' },
+];
+
+const MovieList = ({ movies, fetch }) => {
 
     return (
         <div>
-            <ul>
-                { movies.map(
-                    (movie, i) => (
-                        <li key={i}>{ movie.title }</li>
-                    )
-                ) }
-            </ul>
+            <Table 
+                keygen="id"
+                width={800}
+                columns={columns}
+                data={movies}
+            />
+            <Button outline type="primary" onClick={fetch}>Reload</Button>
         </div>
     );
 };
