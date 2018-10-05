@@ -11,4 +11,12 @@ export function setMovies(movies) {
         type: SET_MOVIES,
         movies
     };
-} 
+}
+
+export const DELETE_MOVIE = 'DELETE_MOVIE';
+export function deleteMovie(id) {
+    return {
+        type: DELETE_MOVIE,
+        id
+    };
+}

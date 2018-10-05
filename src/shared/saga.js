@@ -1,11 +1,13 @@
 import { all } from 'redux-saga/effects';
 
 import { 
-    getMovies
+    getMovies,
+    deleteMovie
 } from '../sagas';
 
 export function* rootSaga() {
     yield all([
-        getMovies()
+        getMovies(),
+        deleteMovie()
     ]);
 }

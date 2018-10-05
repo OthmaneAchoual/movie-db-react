@@ -3,15 +3,18 @@ import { connect } from 'react-redux';
 
 import { Button, Table } from 'shineout';
 
-import { getMovies } from '../actions';
+import { getMovies, deleteMovie } from '../actions';
 
 
-const columns = [
-    { title: 'ID', render: 'id' },
-    { title: 'Title', render: 'title' },
-];
 
-const MovieList = ({ movies, fetch }) => {
+
+const MovieList = ({ movies, fetch, remove }) => {
+
+    const columns = [
+        { title: 'ID', render: 'id' },
+        { title: 'Title', render: 'title' },
+        { title: 'Actions', render: d => <Button outline type="danger" onClick={() => remove(d.id)}>Delete</Button>}
+    ];
 
     return (
         <div>
@@ -29,7 +32,8 @@ const MovieList = ({ movies, fetch }) => {
 export const MovieListComponent = connect(
     state => state,
     {
-        fetch: getMovies
+        fetch: getMovies,
+        remove: deleteMovie
     }
 )(MovieList);
 
