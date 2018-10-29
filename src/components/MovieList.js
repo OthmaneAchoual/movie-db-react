@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import { Button, Table } from 'shineout';
 
@@ -17,14 +18,17 @@ const MovieList = ({ movies, fetch, remove }) => {
     ];
 
     return (
-        <div>
+        <div className="container">
             <Table 
                 keygen="id"
+                striped
+                bordered
                 width={800}
                 columns={columns}
                 data={movies}
             />
             <Button outline type="primary" onClick={fetch}>Reload</Button>
+            <NavLink className="btn btn-success" to="/movies/add">+ Add Movie</NavLink>
         </div>
     );
 };

@@ -20,3 +20,11 @@ export function deleteMovie(id) {
         id
     };
 }
+
+export const ADD_MOVIE = 'ADD_MOVIE';
+export function addMovie(movie) {
+    return {
+        type: ADD_MOVIE,
+        movie
+    };
+}

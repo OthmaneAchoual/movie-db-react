@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { MovieListComponent } from './components';
+import { HashRouter, Switch, Route } from 'react-router-dom';
+import { MovieListComponent, AddMovie } from './components';
 
 class App extends Component {
   render() {
@@ -22,9 +23,14 @@ class App extends Component {
       //     </a>
       //   </header>
 
-        
+
       // </div>
-      <MovieListComponent />
+      <HashRouter>
+        <Switch>
+          <Route exact path="/" component={MovieListComponent} />
+          <Route path="/movies/add" component={AddMovie} />
+        </Switch>
+      </HashRouter>
     );
   }
 }
