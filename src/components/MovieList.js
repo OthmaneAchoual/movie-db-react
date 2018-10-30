@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { Button, Table } from 'shineout';
 
 import { getMovies, deleteMovie } from '../actions';
+import { StarRate } from './StarRate';
 
 
 
@@ -14,7 +15,9 @@ const MovieList = ({ movies, fetch, remove }) => {
     const columns = [
         { title: 'ID', render: 'id' },
         { title: 'Title', render: 'title' },
-        { title: 'Actions', render: d => <Button outline type="danger" onClick={() => remove(d.id)}>Delete</Button>}
+        { title: 'Release', render: 'releaseDate' },
+        { title: 'Rating', render: d => <StarRate value={d.rating} disabled={true} /> },
+        { title: 'Actions', render: d => <Button outline type="danger" onClick={() => remove(d.id)}>Delete</Button> },
     ];
 
     return (
