@@ -21,7 +21,7 @@ class TopRated extends Component {
         const columns = [
             { title: 'ID', render: 'id', width: 50, },
             { title: 'Title', render: 'title' },
-            { title: 'Release', render: 'releaseDate' },
+            { title: 'Release Date', render: 'releaseDate' },
             { title: 'Rating', render: d => <StarRate value={d.rating} disabled={true} /> },
         ];
 

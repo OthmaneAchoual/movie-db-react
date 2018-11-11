@@ -1,1 +1,1 @@
-export { getMovies, getTopMovies, deleteMovie, } from './movies';
+export { getMovies, getTopMovies, getLatestMovies, deleteMovie, } from './movies';

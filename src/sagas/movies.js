@@ -1,5 +1,5 @@
 import { put, take } from 'redux-saga/effects';
-import { GET_MOVIES, setMovies, DELETE_MOVIE, getMovies as get, GET_TOP_MOVIES, setTopMovies } from '../actions';
+import { GET_MOVIES, setMovies, DELETE_MOVIE, getMovies as get, GET_TOP_MOVIES, setTopMovies, GET_LATEST_MOVIES, setLatestMovies } from '../actions';
 import { adapter } from '../shared';
 
 export function* getMovies() {
@@ -25,6 +25,18 @@ export function* getTopMovies() {
 
         }
     }
+}
+
+export function* getLatestMovies() {
+  while(true) {
+      try {
+          yield take(GET_LATEST_MOVIES);
+          const { data: movies } = yield adapter.get(`/api/movie/latest`);
+          yield put(setLatestMovies(movies));
+      } catch (err) {
+
+      }
+  }
 }
 
 export function* deleteMovie() {

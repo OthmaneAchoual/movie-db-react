@@ -31,6 +31,21 @@ export function setTopMovies(movies) {
     };
 }
 
+export const GET_LATEST_MOVIES = 'GET_LATEST_MOVIES';
+export function getLatestMovies() {
+    return {
+        type: GET_LATEST_MOVIES
+    };
+}
+
+export const SET_LATEST_MOVIES = 'SET_LATEST_MOVIES';
+export function setLatestMovies(movies) {
+    return {
+        type: SET_LATEST_MOVIES,
+        movies
+    };
+}
+
 export const DELETE_MOVIE = 'DELETE_MOVIE';
 export function deleteMovie(id) {
     return {
